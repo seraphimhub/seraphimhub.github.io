@@ -362,14 +362,35 @@
     margin-right: 8px;
 }
 
-#terminal-input {
-    background: transparent;
-    border: none;
+#terminal-input,
+.terminal-input {
+    background: #000; /* full dark */
+    border: 1px solid rgba(0,255,136,0.4);
     outline: none;
     color: #00ff88;
-    font-family: inherit;
+    font-family: 'Space Mono', monospace;
     font-size: 14px;
     width: 100%;
+    padding: 6px 8px;
+    border-radius: 3px;
+}
+
+/* efek fokus biar hidup */
+#terminal-input:focus,
+.terminal-input:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 6px rgba(0,255,136,0.6);
+}
+
+/* fix autofill putih di Chrome/Brave */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #000 inset !important;
+    -webkit-text-fill-color: #00ff88 !important;
+}
+
+/* placeholder */
+input::placeholder {
+    color: rgba(0,255,136,0.5);
 }
 .terminal-input:disabled {
     opacity: 0.6;
@@ -658,7 +679,8 @@ function createInput() {
 
     inputLine.innerHTML = `
         <span class="prompt">$</span>
-        <input type="text" class="terminal-input" autofocus />
+        #terminal-input,
+.terminal-input { ... }
     `;
 
     body.appendChild(inputLine);
