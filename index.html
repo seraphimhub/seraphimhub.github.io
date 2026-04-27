@@ -371,7 +371,9 @@
     font-size: 14px;
     width: 100%;
 }
-
+.terminal-input:disabled {
+    opacity: 0.6;
+}
         /* Fade on scroll */
         .fade {
             opacity: 0;
@@ -647,81 +649,112 @@
     });
 </script>
 
-    <script>
-const input = document.getElementById("terminal-input");
+   <script>
 const body = document.getElementById("terminal-body");
 
-const commands = {
-    help: `
-Available commands:
-- about
-- services
-- scan
-- clear
-- contact
-`,
-    about: "Cybersecurity enthusiast focused on penetration testing & OSINT.",
-    services: `
-Services:
-- Web Pentest
-- Vulnerability Assessment
-- OSINT Investigation
-`,
-    contact: "Email: angelseraphim64@email.com",
-    scan: `
-Initializing scan...
-Target: example.com
-Status: Running...
-Vulnerabilities found: 3 (1 critical)
-Report generated ✔
-`
-};
-
-input.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        const value = input.value.trim();
-
-        addLine(`$ ${value}`);
-
-        if (value === "clear") {
-            body.innerHTML = "";
-            addInput();
-            return;
-        }
-
-        if (commands[value]) {
-            addLine(commands[value]);
-        } else {
-            addLine("Command not found. Type 'help'");
-        }
-
-        input.value = "";
-        scrollBottom();
-    }
-});
-
-function addLine(text) {
-    const div = document.createElement("div");
-    div.classList.add("line");
-    div.innerText = text;
-    body.insertBefore(div, document.querySelector(".input-line"));
-}
-
-function addInput() {
+function createInput() {
     const inputLine = document.createElement("div");
     inputLine.classList.add("input-line");
 
     inputLine.innerHTML = `
         <span class="prompt">$</span>
-        <input type="text" id="terminal-input" autofocus />
+        <input type="text" class="terminal-input" autofocus />
     `;
 
     body.appendChild(inputLine);
+
+    const input = inputLine.querySelector("input");
+
+    input.focus();
+
+    input.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+            const value = input.value.trim();
+
+            // lock input setelah enter
+            input.setAttribute("disabled", true);
+
+            addLine(`$ ${value}`);
+
+            handleCommand(value);
+
+            createInput();
+            scrollBottom();
+        }
+    });
+}
+
+function addLine(text) {
+    const div = document.createElement("div");
+    div.classList.add("line");
+    div.innerText = text;
+    body.insertBefore(div, body.lastChild);
+}
+
+function handleCommand(cmd) {
+    const commands = {
+        help: [
+            "Available commands:",
+            "about       - profile summary",
+            "services    - list services",
+            "scan        - simulate security scan",
+            "osint       - OSINT module",
+            "clear       - clear terminal",
+            "contact     - contact info"
+        ],
+
+        about: [
+            "Seraphim Security",
+            "Focused on penetration testing & OSINT analysis."
+        ],
+
+        services: [
+            "Services:",
+            "- Web Penetration Testing",
+            "- Vulnerability Assessment",
+            "- OSINT Intelligence"
+        ],
+
+        contact: [
+            "Email: angelseraphim64@email.com",
+            "GitHub: github.com/seraphimhub"
+        ],
+
+        osint: [
+            "Collecting open-source intelligence...",
+            "Analyzing digital footprint...",
+            "Data correlation complete ✔"
+        ],
+
+        scan: [
+            "Initializing scan...",
+            "Target: example.com",
+            "Enumerating endpoints...",
+            "Testing vulnerabilities...",
+            "Result: 3 findings (1 critical)",
+            "Report generated ✔"
+        ]
+    };
+
+    if (cmd === "clear") {
+        body.innerHTML = "";
+        createInput();
+        return;
+    }
+
+    if (commands[cmd]) {
+        commands[cmd].forEach(line => addLine(line));
+    } else {
+        addLine("Command not found. Type 'help'");
+    }
 }
 
 function scrollBottom() {
     body.scrollTop = body.scrollHeight;
 }
+
+// INIT
+createInput();
 </script>
     
 </body>
