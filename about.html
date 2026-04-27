@@ -18,11 +18,7 @@
     --sub: #888;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
 
 body {
     font-family: 'DM Sans', sans-serif;
@@ -30,7 +26,7 @@ body {
     color: var(--text);
 }
 
-/* NAVBAR (SAMA SEPERTI BERANDA) */
+/* NAVBAR */
 nav {
     position: fixed;
     top: 0;
@@ -67,7 +63,7 @@ nav {
     font-weight: 600;
 }
 
-/* LINK NAV */
+/* NAV LINKS */
 .nav-links {
     display: flex;
     gap: 40px;
@@ -85,12 +81,23 @@ nav {
     color: var(--accent);
 }
 
-/* HERO MINI */
+/* HERO (SAMA VIBE BERANDA) */
 .hero {
-    margin-top: 80px;
-    padding: 120px 0 80px;
-    text-align: center;
-    background: linear-gradient(to bottom, rgba(255,51,51,0.05), transparent);
+    margin-top: 70px;
+    height: 80vh;
+    background: 
+        linear-gradient(135deg, rgba(10,10,10,0.85), rgba(255,51,51,0.15)),
+        url('images/banner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
 }
 
 .hero h1 {
@@ -98,41 +105,58 @@ nav {
     margin-bottom: 10px;
 }
 
+.subtitle {
+    color: var(--accent-red);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
 .hero p {
     color: var(--sub);
+    max-width: 600px;
+}
+
+.typing {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    margin-top: 20px;
 }
 
 /* SECTION */
 .section {
     width: 90%;
-    max-width: 900px;
+    max-width: 1100px;
     margin: auto;
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 .section h2 {
-    margin-bottom: 30px;
-    font-size: 32px;
+    margin-bottom: 40px;
 }
 
-.section p {
-    color: var(--sub);
-    line-height: 1.8;
-    margin-bottom: 20px;
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 30px;
 }
 
 /* CARD */
 .card {
     background: var(--card);
+    padding: 25px;
     border: 1px solid rgba(201,169,110,0.2);
-    padding: 30px;
-    margin-top: 40px;
+}
+
+.card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
 }
 
 /* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 12px 28px;
     border: 1px solid var(--accent);
     color: var(--accent);
@@ -157,7 +181,7 @@ nav {
     </a>
 
     <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="index.html#skills">Services</a></li>
         <li><a href="index.html#portfolio">Portfolio</a></li>
         <li><a href="index.html#contact">Contact</a></li>
@@ -167,42 +191,91 @@ nav {
 
 <!-- HERO -->
 <section class="hero">
-    <h1>About</h1>
-    <p>Simple, practical, and focused on real security needs</p>
+    <div class="hero-content">
+        <h1>About Seraphim</h1>
+        <div class="subtitle">Security Services Overview</div>
+        <p>
+            Layanan pengujian keamanan yang berfokus pada identifikasi risiko nyata 
+            dan solusi yang dapat langsung diterapkan.
+        </p>
+        <div class="typing" id="typing"></div>
+        <a href="index.html#contact" class="btn">Hubungi</a>
+    </div>
 </section>
 
-<!-- CONTENT -->
+<!-- ABOUT + SERVICES -->
 <section class="section">
 
-    <p>
-        Seraphim Security menyediakan layanan pengujian keamanan website 
-        dan analisis kerentanan dengan pendekatan yang sederhana dan langsung ke inti.
+    <p style="max-width:800px; color:var(--sub); line-height:1.8;">
+        Seraphim Security menyediakan layanan pengujian dan analisis keamanan 
+        untuk membantu mengidentifikasi serta mengurangi risiko pada sistem dan aplikasi.
     </p>
 
-    <p>
-        Fokus utama adalah membantu pemilik website, UMKM, dan developer 
-        memahami risiko yang ada dan memberikan solusi yang bisa langsung diterapkan.
+    <p style="margin-top:20px; max-width:800px; color:var(--sub); line-height:1.8;">
+        Pendekatan yang digunakan berfokus pada praktik umum seperti OWASP dan PTES, 
+        dengan pengujian langsung terhadap potensi celah pada web, network, dan API.
     </p>
 
-    <p>
-        Pengujian dilakukan berdasarkan skenario serangan umum seperti 
-        SQL Injection, XSS, serta pengecekan konfigurasi yang berpotensi berbahaya.
-    </p>
+    <div class="grid" style="margin-top:50px;">
 
-    <p>
-        Layanan ini cocok untuk yang ingin meningkatkan keamanan tanpa proses yang rumit.
-    </p>
+        <div class="card">
+            <h3>Penetration Testing</h3>
+            <p>Pengujian keamanan pada web, network, dan API.</p>
+        </div>
 
-    <div class="card">
-        <h2 style="font-size:20px;">Pendekatan</h2>
-        <p>✔ Pengujian manual (bukan hanya tools)</p>
-        <p>✔ Fokus ke masalah nyata, bukan teori</p>
-        <p>✔ Hasil jelas dan mudah dipahami</p>
+        <div class="card">
+            <h3>Vulnerability Assessment</h3>
+            <p>Identifikasi kerentanan dan rekomendasi perbaikan.</p>
+        </div>
+
+        <div class="card">
+            <h3>OSINT Investigation</h3>
+            <p>Analisis informasi terbuka untuk identifikasi risiko.</p>
+        </div>
+
+        <div class="card">
+            <h3>Security Audit</h3>
+            <p>Pemeriksaan sistem dan konfigurasi keamanan.</p>
+        </div>
+
+        <div class="card">
+            <h3>API Security</h3>
+            <p>Pengujian keamanan API REST dan GraphQL.</p>
+        </div>
+
+        <div class="card">
+            <h3>Incident Response</h3>
+            <p>Analisis kejadian keamanan dan penanganannya.</p>
+        </div>
+
     </div>
 
-    <a href="index.html#contact" class="btn">Hubungi</a>
-
 </section>
+
+<!-- TYPING EFFECT -->
+<script>
+const text = [
+    "> Identifying vulnerabilities...",
+    "> Testing attack surface...",
+    "> Analyzing security risks..."
+];
+
+let i = 0, j = 0;
+function type() {
+    if (i < text.length) {
+        if (j < text[i].length) {
+            document.getElementById("typing").innerHTML += text[i][j];
+            j++;
+            setTimeout(type, 40);
+        } else {
+            i++; j = 0;
+            document.getElementById("typing").innerHTML = "";
+            setTimeout(type, 1500);
+        }
+    }
+}
+type();
+</script>
 
 </body>
 </html>
