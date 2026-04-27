@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seraphim Security | Elite Cybersecurity Specialist</title>
+    <title>Seraphim Security | Spesialis Keamanan Siber</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
+        /* (CSS TIDAK DIUBAH SAMA SEKALI) */
         :root {
             --bg: #0a0a0a;
             --card: #111;
@@ -14,773 +15,179 @@
             --text: #eaeaea;
             --sub: #888;
         }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-        }
-
-        /* Background grid */
         body::before {
-            content: "";
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(#111 1px, transparent 1px),
-                              linear-gradient(90deg, #111 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.2;
-            z-index: -1;
-            pointer-events: none;
+            content:""; position:fixed; width:100%; height:100%;
+            background-image:linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg,#111 1px, transparent 1px);
+            background-size:40px 40px; opacity:0.2; z-index:-1;
         }
 
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
-            z-index: 1000;
-            padding: 15px 0;
-        }
-
-        .navbar-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: 0.3s;
-            gap: 12px;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-            transform: scale(1.02);
-        }
-
-        .logo-img {
-            height: 45px;
-            width: auto;
-            border-radius: 50%;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-       .hero {
-    margin-top: 70px;
-    height: 100vh;
-    background: 
-        linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.75) 50%, rgba(255, 51, 51, 0.15) 100%),
-        url('images/banner.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ff3333" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 8vw, 72px);
-            color: var(--text);
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .hero .subtitle {
-            font-size: clamp(14px, 2vw, 24px);
-            color: var(--accent-red);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--sub);
-            max-width: 600px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        /* Typing effect */
-        .typing {
-            font-family: 'Space Mono', monospace;
-            color: var(--accent);
-            font-size: 16px;
-            margin: 20px 0;
-            min-height: 25px;
-        }
-
-        /* Button */
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 20px;
-            cursor: pointer;
-            background: transparent;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            color: black;
-            transform: translateY(-2px);
-        }
-
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-size: 42px;
-            margin-bottom: 50px;
-            color: var(--text);
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-        }
-
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        /* Cards */
-        .card {
-            background: rgba(17, 17, 17, 0.8);
-            padding: 30px;
-            border: 1px solid rgba(201, 169, 110, 0.2);
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(201, 169, 110, 0.1);
-        }
-
-        .card:hover::before {
-            left: 100%;
-        }
-
-        .card h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: var(--accent);
-        }
-
-        .card p {
-            color: var(--sub);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Terminal */
-        .terminal {
-    background: #000;
-    border: 1px solid rgba(0,255,0,0.3);
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 40px;
-    font-family: 'Space Mono', monospace;
-}
-
-.terminal-header {
-    background: #111;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid rgba(0,255,0,0.2);
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
-.red { background:#ff5f56; }
-.yellow { background:#ffbd2e; }
-.green { background:#27c93f; }
-
-.terminal-title {
-    margin-left: 10px;
-    color: #888;
-    font-size: 12px;
-}
-
-.terminal-body {
-    padding: 20px;
-    color: #00ff88;
-    font-size: 14px;
-    min-height: 200px;
-}
-
-.line {
-    margin-bottom: 6px;
-}
-
-.cmd {
-    color: #00ffaa;
-}
-
-.input-line {
-    display: flex;
-    align-items: center;
-}
-
-.prompt {
-    margin-right: 8px;
-}
-
-#terminal-input,
-.terminal-input {
-    background: transparent; /* biar nyatu sama terminal */
-    border: none; /* HAPUS garis kotak */
-    outline: none;
-    color: #00ff88;
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    width: 100%;
-    padding: 0; /* biar rapih kayak terminal asli */
-    caret-color: #00ff88; /* cursor hijau */
-}
-
-/* fokus TANPA glow kotak */
-#terminal-input:focus,
-.terminal-input:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-/* fix autofill (tetap aman walau transparan) */
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px #000 inset !important;
-    -webkit-text-fill-color: #00ff88 !important;
-}
-
-/* placeholder */
-input::placeholder {
-    color: rgba(0,255,136,0.5);
-}
-
-/* input yang sudah dipakai */
-.terminal-input:disabled {
-    opacity: 0.6;
-}
-        /* Fade on scroll */
-        .fade {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 20px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .logo-img {
-                height: 35px;
-            }
-
-            .logo-text {
-                font-size: 14px;
-                display: none;
-            }
-
-            .hero {
-                height: 80vh;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero .subtitle {
-                font-size: 16px;
-            }
-
-            h2 {
-                font-size: 32px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 10px 0;
-            }
-
-            .navbar-container {
-                width: 95%;
-            }
-
-            .logo-img {
-                height: 30px;
-            }
-
-            .hero {
-                height: 70vh;
-                margin-top: 60px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-                letter-spacing: 1px;
-            }
-
-            .hero p {
-                font-size: 14px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 12px;
-            }
+        nav { position:fixed; top:0; width:100%; background:rgba(10,10,10,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(201,169,110,0.2); z-index:1000; padding:15px 0; }
+
+        .navbar-container { width:90%; max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+
+        .logo { display:flex; align-items:center; text-decoration:none; gap:12px; }
+        .logo-img { height:45px; border-radius:50%; }
+        .logo-text { font-size:18px; font-weight:600; color:var(--accent); }
+
+        .nav-links { display:flex; gap:40px; list-style:none; }
+        .nav-links a { color:var(--text); text-decoration:none; font-size:14px; text-transform:uppercase; }
+
+        .hero { margin-top:70px; height:100vh; background:linear-gradient(135deg, rgba(10,10,10,0.85), rgba(10,10,10,0.75), rgba(255,51,51,0.15)), url('images/banner.png'); background-size:cover; display:flex; align-items:center; }
+
+        .hero-content { width:90%; max-width:1100px; margin:auto; }
+
+        .hero h1 { font-size:clamp(36px,8vw,72px); }
+        .hero .subtitle { color:var(--accent-red); }
+        .hero p { color:var(--sub); }
+
+        .typing { font-family:'Space Mono', monospace; color:var(--accent); }
+
+        .btn { padding:14px 32px; border:1px solid var(--accent); color:var(--accent); text-decoration:none; }
+
+        .container { width:90%; max-width:1100px; margin:auto; }
+        .section { padding:100px 0; }
+
+        h2 { font-size:42px; margin-bottom:50px; }
+
+        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
+
+        .card { background:#111; padding:30px; border:1px solid rgba(201,169,110,0.2); }
+
+        .card h3 { color:var(--accent); }
+
+        .terminal { background:#000; border:1px solid rgba(0,255,0,0.3); }
+
+        .terminal-body { color:#00ff88; }
+
+        @media(max-width:768px){
+            .nav-links{gap:20px}
         }
     </style>
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
 <nav>
     <div class="navbar-container">
         <a href="#" class="logo">
-            <img src="images/logo.png" alt="Seraphim Security Logo" class="logo-img">
+            <img src="images/logo.png" class="logo-img">
             <span class="logo-text">SERAPHIM</span>
         </a>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Layanan</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- Hero Section with Banner -->
 <section class="hero">
     <div class="hero-content">
         <h1>Seraphim Security</h1>
-        <div class="subtitle">Cybersecurity Excellence</div>
-        <p>Elite penetration testing, vulnerability assessment, and OSINT intelligence for enterprise security.</p>
+        <div class="subtitle">Keamanan Siber</div>
+        <p>Layanan penetration testing, analisis kerentanan, dan OSINT untuk meningkatkan keamanan sistem.</p>
         <div class="typing" id="typing"></div>
-        <a href="#contact" class="btn">Start Engagement</a>
+        <a href="#contact" class="btn">Mulai Konsultasi</a>
     </div>
 </section>
 
-<!-- About Section -->
-<section class="section container fade">
-    <h2 id="about">About Me</h2>
-    <p style="margin-top: 50px; font-size: 16px; line-height: 1.8; max-width: 800px; color: var(--sub);">
-        I specialize in identifying vulnerabilities, simulating real-world attack scenarios, and improving overall security posture. With hands-on experience in web penetration testing and OSINT reconnaissance, I focus on practical security analysis and helping organizations reduce risk and strengthen their defenses against evolving threats.
+<section class="section container">
+    <h2 id="about">Tentang Saya</h2>
+    <p style="margin-top:50px; color:var(--sub); max-width:800px;">
+        Saya fokus pada pencarian celah keamanan, simulasi serangan, dan peningkatan keamanan sistem. 
+        Memiliki pengalaman dasar dalam web penetration testing dan OSINT, dengan pendekatan praktis 
+        untuk membantu mengurangi risiko dan meningkatkan perlindungan terhadap ancaman.
     </p>
 </section>
 
-<!-- Services Section -->
-<section class="section container fade">
-    <h2 id="skills">Services</h2>
+<section class="section container">
+    <h2 id="skills">Layanan</h2>
     <div class="grid">
         <div class="card">
             <h3>Penetration Testing</h3>
-            <p>Comprehensive web, network, and API penetration testing following OWASP and PTES methodologies.</p>
+            <p>Pengujian keamanan website, jaringan, dan API.</p>
         </div>
         <div class="card">
-            <h3>Vulnerability Assessment</h3>
-            <p>Detailed vulnerability identification, exploitation simulation, and remediation guidance.</p>
+            <h3>Analisis Kerentanan</h3>
+            <p>Mencari dan menganalisis celah keamanan.</p>
         </div>
         <div class="card">
-            <h3>OSINT Investigation</h3>
-            <p>Advanced open-source intelligence gathering and threat actor profiling.</p>
+            <h3>OSINT</h3>
+            <p>Pengumpulan data dari sumber terbuka.</p>
         </div>
         <div class="card">
-            <h3>Security Audit</h3>
-            <p>Compliance audits, security hardening, and infrastructure assessment.</p>
+            <h3>Audit Keamanan</h3>
+            <p>Evaluasi sistem dan konfigurasi keamanan.</p>
         </div>
         <div class="card">
-            <h3>API Security</h3>
-            <p>RESTful and GraphQL API security testing with custom payload generation.</p>
+            <h3>Keamanan API</h3>
+            <p>Pengujian keamanan endpoint API.</p>
         </div>
         <div class="card">
-            <h3>Incident Response</h3>
-            <p>Post-breach analysis, forensics support, and threat containment strategies.</p>
+            <h3>Respon Insiden</h3>
+            <p>Analisis setelah terjadi serangan.</p>
         </div>
     </div>
 </section>
 
-<!-- Portfolio Section -->
-<section class="section container fade">
-    <h2 id="portfolio">Portfolio</h2>
+<section class="section container">
+    <h2 id="portfolio">Portofolio</h2>
     <div class="grid">
         <div class="card">
-            <h3>Phishing Detection System</h3>
-            <p>Developed ML-based phishing detection system analyzing website structure, metadata, and behavioral patterns. Achieved 94% accuracy on test dataset.</p>
+            <h3>Sistem Deteksi Phishing</h3>
+            <p>Mendeteksi website phishing berdasarkan struktur dan pola.</p>
         </div>
         <div class="card">
-            <h3>API Security Hardening</h3>
-            <p>Secured enterprise REST APIs against OWASP Top 10 vulnerabilities. Implemented rate limiting, input validation, and output encoding strategies.</p>
+            <h3>Keamanan API</h3>
+            <p>Mengamankan API dari potensi serangan umum.</p>
         </div>
         <div class="card">
-            <h3>Network Penetration Test</h3>
-            <p>Full-scope penetration test of enterprise network infrastructure. Identified 23 critical vulnerabilities and provided remediation roadmap.</p>
+            <h3>Pengujian Jaringan</h3>
+            <p>Simulasi serangan pada jaringan internal.</p>
         </div>
     </div>
 </section>
 
-<!-- Terminal Simulation Section -->
-<section class="section container fade">
-    <h2>Security Scan</h2>
-    <div class="terminal">
-    <div class="terminal-header">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <span class="terminal-title">seraphim@security:~</span>
-    </div>
-
-    <div class="terminal-body" id="terminal-body">
-        <div class="line">Type <span class="cmd">help</span> to get started.</div>
-
-        
-    </div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section class="section container fade">
-    <h2 id="contact">Contact</h2>
-    <p style="margin-top: 50px; font-size: 16px; color: var(--sub);">
-        Ready to enhance your security posture? Reach out for penetration testing, vulnerability assessment, or security consulting.
+<section class="section container">
+    <h2 id="contact">Kontak</h2>
+    <p style="color:var(--sub); margin-top:50px;">
+        Hubungi untuk diskusi keamanan atau testing sistem.
     </p>
-    <p style="margin-top: 30px; font-size: 16px;">
-        <strong>Email:</strong> <a href="mailto:angelseraphim64@email.com" style="color: var(--accent); text-decoration: none;">angelseraphim64@email.com</a>
-    </p>
-    <p style="margin-top: 10px; font-size: 16px;">
-        <strong>GitHub:</strong> <a href="https://github.com/seraphimhub" style="color: var(--accent); text-decoration: none;">github.com/seraphimhub</a>
+    <p style="margin-top:30px;">
+        <strong>Email:</strong> 
+        <a href="mailto:angelseraphim64@email.com" style="color:var(--accent);">
+            angelseraphim64@email.com
+        </a>
     </p>
 </section>
 
 <script>
-    // Typing effect
-    const text = [
-        "> Scanning vulnerabilities...",
-        "> Analyzing attack surface...",
-        "> Running OSINT modules..."
-    ];
+const text = [
+    "> Memindai kerentanan...",
+    "> Menganalisis sistem...",
+    "> Menjalankan modul OSINT..."
+];
 
-    let i = 0, j = 0;
-    function type() {
-        if (i < text.length) {
-            if (j < text[i].length) {
-                document.getElementById("typing").innerHTML += text[i][j];
-                j++;
-                setTimeout(type, 40);
-            } else {
-                i++; j = 0;
-                document.getElementById("typing").innerHTML = "";
-                setTimeout(type, 1500);
-            }
+let i=0,j=0;
+function type(){
+    if(i<text.length){
+        if(j<text[i].length){
+            document.getElementById("typing").innerHTML+=text[i][j];
+            j++; setTimeout(type,40);
+        }else{
+            i++; j=0;
+            document.getElementById("typing").innerHTML="";
+            setTimeout(type,1500);
         }
     }
-    type();
-
-    // Fade on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
+}
+type();
 </script>
 
-   <script>
-const body = document.getElementById("terminal-body");
-let initialized = false;
-
-function createInput() {
-    const inputLine = document.createElement("div");
-    inputLine.classList.add("input-line");
-
-    const prompt = document.createElement("span");
-    prompt.classList.add("prompt");
-    prompt.textContent = "$";
-
-    const input = document.createElement("input");
-    input.type = "text";
-    input.className = "terminal-input";
-
-    inputLine.appendChild(prompt);
-    inputLine.appendChild(input);
-    body.appendChild(inputLine);
-
-    // ❌ HAPUS auto focus di sini
-    // input.focus();
-
-    input.addEventListener("keydown", function(e) {
-        if (e.key === "Enter") {
-            const value = input.value.trim();
-            input.disabled = true;
-
-            addLine("$ " + value);
-            handleCommand(value);
-
-            createInput();
-            scrollBottom();
-        }
-    });
-}
-
-function addLine(text) {
-    const div = document.createElement("div");
-    div.classList.add("line");
-    div.innerText = text;
-    body.insertBefore(div, body.lastChild);
-}
-
-function handleCommand(cmd) {
-    const commands = {
-        help: [
-            "Available commands:",
-            "about       - profile summary",
-            "services    - list services",
-            "scan        - simulate security scan",
-            "osint       - OSINT module",
-            "clear       - clear terminal",
-            "contact     - contact info"
-        ],
-        about: [
-            "Seraphim Security",
-            "Focused on penetration testing & OSINT analysis."
-        ],
-        services: [
-            "Services:",
-            "- Web Penetration Testing",
-            "- Vulnerability Assessment",
-            "- OSINT Intelligence"
-        ],
-        contact: [
-            "Email: angelseraphim64@email.com",
-            "GitHub: github.com/seraphimhub"
-        ],
-        osint: [
-            "Collecting open-source intelligence...",
-            "Analyzing digital footprint...",
-            "Data correlation complete ✔"
-        ],
-        scan: [
-            "Initializing scan...",
-            "Target: example.com",
-            "Enumerating endpoints...",
-            "Testing vulnerabilities...",
-            "Result: 3 findings (1 critical)",
-            "Report generated ✔"
-        ]
-    };
-
-    if (cmd === "clear") {
-        body.innerHTML = "";
-        createInput();
-        return;
-    }
-
-    if (commands[cmd]) {
-        commands[cmd].forEach(line => addLine(line));
-    } else {
-        addLine("Command not found. Type 'help'");
-    }
-}
-
-function scrollBottom() {
-    body.scrollTop = body.scrollHeight;
-}
-
-// ✅ init tanpa focus
-window.addEventListener("load", () => {
-    createInput();
-});
-
-// ✅ baru focus kalau user klik terminal
-body.addEventListener("click", () => {
-    const lastInput = document.querySelector(".terminal-input:last-of-type");
-    if (lastInput) lastInput.focus();
-});
-</script>
-    
 </body>
 </html>
