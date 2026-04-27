@@ -1,168 +1,208 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Seraphim Security</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+<title>About | Seraphim Security</title>
 
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --card: #111;
-            --accent: #c9a96e;
-            --text: #eaeaea;
-            --sub: #888;
-        }
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --bg: #0a0a0a;
+    --card: #111;
+    --accent: #c9a96e;
+    --accent-red: #ff3333;
+    --text: #eaeaea;
+    --sub: #888;
+}
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10,10,10,0.95);
-            border-bottom: 1px solid rgba(201,169,110,0.2);
-            padding: 15px 0;
-            z-index: 1000;
-        }
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
 
-        .nav-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* NAVBAR (SAMA SEPERTI BERANDA) */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10,10,10,0.95);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    z-index: 1000;
+    padding: 15px 0;
+}
 
-        .logo {
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+.navbar-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+}
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-        }
+.logo img {
+    height: 40px;
+    border-radius: 50%;
+}
 
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 120px auto 60px;
-        }
+.logo span {
+    color: var(--accent);
+    font-weight: 600;
+}
 
-        h1 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
+/* LINK NAV */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
 
-        p {
-            color: var(--sub);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    text-transform: uppercase;
+}
 
-        .card {
-            margin-top: 40px;
-            padding: 25px;
-            border: 1px solid rgba(201,169,110,0.2);
-            background: var(--card);
-        }
+.nav-links a:hover {
+    color: var(--accent);
+}
 
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
+/* HERO MINI */
+.hero {
+    margin-top: 80px;
+    padding: 120px 0 80px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(255,51,51,0.05), transparent);
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 24px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-        }
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
 
-        .btn:hover {
-            background: var(--accent);
-            color: black;
-        }
-    </style>
+.hero p {
+    color: var(--sub);
+}
+
+/* SECTION */
+.section {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.section h2 {
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.section p {
+    color: var(--sub);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+    background: var(--card);
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 30px;
+    margin-top: 40px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: black;
+}
+</style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
-    <div class="nav-container">
-        <a href="index.html" class="logo">SERAPHIM</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="index.html#skills">Layanan</a></li>
-            <li><a href="index.html#portfolio">Portofolio</a></li>
-            <li><a href="index.html#contact">Kontak</a></li>
-        </ul>
-    </div>
+<div class="navbar-container">
+    <a href="index.html" class="logo">
+        <img src="images/logo.png">
+        <span>SERAPHIM</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Services</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+</div>
 </nav>
 
-<div class="container">
+<!-- HERO -->
+<section class="hero">
     <h1>About</h1>
+    <p>Simple, practical, and focused on real security needs</p>
+</section>
+
+<!-- CONTENT -->
+<section class="section">
 
     <p>
-        Saya tertarik di bidang cybersecurity, khususnya web penetration testing dan OSINT.
-        Saat ini saya masih terus belajar dan mengembangkan kemampuan lewat praktik langsung dan eksplorasi tools.
+        Seraphim Security menyediakan layanan pengujian keamanan website 
+        dan analisis kerentanan dengan pendekatan yang sederhana dan langsung ke inti.
     </p>
 
     <p>
-        Fokus saya adalah memahami bagaimana celah keamanan bisa terjadi, bagaimana serangan dilakukan,
-        dan bagaimana cara mencegahnya dengan pendekatan yang realistis.
+        Fokus utama adalah membantu pemilik website, UMKM, dan developer 
+        memahami risiko yang ada dan memberikan solusi yang bisa langsung diterapkan.
     </p>
 
     <p>
-        Saya belum memiliki sertifikasi resmi, tapi saya aktif membangun project dan mencoba berbagai teknik
-        untuk meningkatkan skill secara nyata.
+        Pengujian dilakukan berdasarkan skenario serangan umum seperti 
+        SQL Injection, XSS, serta pengecekan konfigurasi yang berpotensi berbahaya.
+    </p>
+
+    <p>
+        Layanan ini cocok untuk yang ingin meningkatkan keamanan tanpa proses yang rumit.
     </p>
 
     <div class="card">
-        <h3>Yang sedang saya pelajari</h3>
-        <p>
-            - Web Penetration Testing (basic - intermediate)<br>
-            - OSINT & analisis jejak digital<br>
-            - Keamanan API<br>
-            - Dasar vulnerability assessment
-        </p>
+        <h2 style="font-size:20px;">Pendekatan</h2>
+        <p>✔ Pengujian manual (bukan hanya tools)</p>
+        <p>✔ Fokus ke masalah nyata, bukan teori</p>
+        <p>✔ Hasil jelas dan mudah dipahami</p>
     </div>
 
-    <div class="card">
-        <h3>Tujuan</h3>
-        <p>
-            Mengembangkan skill cybersecurity secara konsisten, membangun portofolio yang nyata,
-            dan mendapatkan pengalaman dari project maupun pekerjaan di bidang ini.
-        </p>
-    </div>
+    <a href="index.html#contact" class="btn">Hubungi</a>
 
-    <a href="index.html#contact" class="btn">Hubungi Saya</a>
-</div>
+</section>
 
 </body>
 </html>
