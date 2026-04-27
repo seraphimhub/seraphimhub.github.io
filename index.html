@@ -364,25 +364,25 @@
 
 #terminal-input,
 .terminal-input {
-    background: #000; /* full dark */
-    border: 1px solid rgba(0,255,136,0.4);
+    background: transparent; /* biar nyatu sama terminal */
+    border: none; /* HAPUS garis kotak */
     outline: none;
     color: #00ff88;
     font-family: 'Space Mono', monospace;
     font-size: 14px;
     width: 100%;
-    padding: 6px 8px;
-    border-radius: 3px;
+    padding: 0; /* biar rapih kayak terminal asli */
+    caret-color: #00ff88; /* cursor hijau */
 }
 
-/* efek fokus biar hidup */
+/* fokus TANPA glow kotak */
 #terminal-input:focus,
 .terminal-input:focus {
-    border-color: #00ffaa;
-    box-shadow: 0 0 6px rgba(0,255,136,0.6);
+    outline: none;
+    box-shadow: none;
 }
 
-/* fix autofill putih di Chrome/Brave */
+/* fix autofill (tetap aman walau transparan) */
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #000 inset !important;
     -webkit-text-fill-color: #00ff88 !important;
@@ -392,6 +392,8 @@ input:-webkit-autofill {
 input::placeholder {
     color: rgba(0,255,136,0.5);
 }
+
+/* input yang sudah dipakai */
 .terminal-input:disabled {
     opacity: 0.6;
 }
@@ -596,10 +598,7 @@ input::placeholder {
     <div class="terminal-body" id="terminal-body">
         <div class="line">Type <span class="cmd">help</span> to get started.</div>
 
-        <div class="input-line">
-            <span class="prompt">$</span>
-            <input type="text" id="terminal-input" autofocus />
-        </div>
+        
     </div>
 </div>
 </section>
