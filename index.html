@@ -671,6 +671,7 @@ input::placeholder {
 
    <script>
 const body = document.getElementById("terminal-body");
+let initialized = false;
 
 function createInput() {
     const inputLine = document.createElement("div");
@@ -686,19 +687,17 @@ function createInput() {
 
     inputLine.appendChild(prompt);
     inputLine.appendChild(input);
-
     body.appendChild(inputLine);
 
-    input.focus();
+    // ❌ HAPUS auto focus di sini
+    // input.focus();
 
     input.addEventListener("keydown", function(e) {
         if (e.key === "Enter") {
             const value = input.value.trim();
-
             input.disabled = true;
 
             addLine("$ " + value);
-
             handleCommand(value);
 
             createInput();
@@ -725,30 +724,25 @@ function handleCommand(cmd) {
             "clear       - clear terminal",
             "contact     - contact info"
         ],
-
         about: [
             "Seraphim Security",
             "Focused on penetration testing & OSINT analysis."
         ],
-
         services: [
             "Services:",
             "- Web Penetration Testing",
             "- Vulnerability Assessment",
             "- OSINT Intelligence"
         ],
-
         contact: [
             "Email: angelseraphim64@email.com",
             "GitHub: github.com/seraphimhub"
         ],
-
         osint: [
             "Collecting open-source intelligence...",
             "Analyzing digital footprint...",
             "Data correlation complete ✔"
         ],
-
         scan: [
             "Initializing scan...",
             "Target: example.com",
@@ -776,10 +770,16 @@ function scrollBottom() {
     body.scrollTop = body.scrollHeight;
 }
 
-// INIT
-window.onload = () => {
+// ✅ init tanpa focus
+window.addEventListener("load", () => {
     createInput();
-};
+});
+
+// ✅ baru focus kalau user klik terminal
+body.addEventListener("click", () => {
+    const lastInput = document.querySelector(".terminal-input:last-of-type");
+    if (lastInput) lastInput.focus();
+});
 </script>
     
 </body>
