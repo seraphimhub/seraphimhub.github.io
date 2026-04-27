@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Seraphim Security</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #111;
+            --accent: #c9a96e;
+            --text: #eaeaea;
+            --sub: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            border-bottom: 1px solid rgba(201,169,110,0.2);
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 120px auto 60px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: var(--sub);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-top: 40px;
+            padding: 25px;
+            border: 1px solid rgba(201,169,110,0.2);
+            background: var(--card);
+        }
+
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo">SERAPHIM</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="index.html#skills">Layanan</a></li>
+            <li><a href="index.html#portfolio">Portofolio</a></li>
+            <li><a href="index.html#contact">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>About</h1>
+
+    <p>
+        Saya tertarik di bidang cybersecurity, khususnya web penetration testing dan OSINT.
+        Saat ini saya masih terus belajar dan mengembangkan kemampuan lewat praktik langsung dan eksplorasi tools.
+    </p>
+
+    <p>
+        Fokus saya adalah memahami bagaimana celah keamanan bisa terjadi, bagaimana serangan dilakukan,
+        dan bagaimana cara mencegahnya dengan pendekatan yang realistis.
+    </p>
+
+    <p>
+        Saya belum memiliki sertifikasi resmi, tapi saya aktif membangun project dan mencoba berbagai teknik
+        untuk meningkatkan skill secara nyata.
+    </p>
+
+    <div class="card">
+        <h3>Yang sedang saya pelajari</h3>
+        <p>
+            - Web Penetration Testing (basic - intermediate)<br>
+            - OSINT & analisis jejak digital<br>
+            - Keamanan API<br>
+            - Dasar vulnerability assessment
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Tujuan</h3>
+        <p>
+            Mengembangkan skill cybersecurity secara konsisten, membangun portofolio yang nyata,
+            dan mendapatkan pengalaman dari project maupun pekerjaan di bidang ini.
+        </p>
+    </div>
+
+    <a href="index.html#contact" class="btn">Hubungi Saya</a>
+</div>
+
+</body>
+</html>
