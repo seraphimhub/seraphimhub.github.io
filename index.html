@@ -676,15 +676,18 @@ function createInput() {
     const inputLine = document.createElement("div");
     inputLine.classList.add("input-line");
 
-    inputLine.innerHTML = `
-        <span class="prompt">$</span>
-        #terminal-input,
-.terminal-input { ... }
-    `;
+    const prompt = document.createElement("span");
+    prompt.classList.add("prompt");
+    prompt.textContent = "$";
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "terminal-input";
+
+    inputLine.appendChild(prompt);
+    inputLine.appendChild(input);
 
     body.appendChild(inputLine);
-
-    const input = inputLine.querySelector("input");
 
     input.focus();
 
@@ -692,10 +695,9 @@ function createInput() {
         if (e.key === "Enter") {
             const value = input.value.trim();
 
-            // lock input setelah enter
-            input.setAttribute("disabled", true);
+            input.disabled = true;
 
-            addLine(`$ ${value}`);
+            addLine("$ " + value);
 
             handleCommand(value);
 
@@ -775,7 +777,9 @@ function scrollBottom() {
 }
 
 // INIT
-createInput();
+window.onload = () => {
+    createInput();
+};
 </script>
     
 </body>
