@@ -328,10 +328,9 @@
     height: 10px;
     border-radius: 50%;
 }
-
-.red { background: #ff5f56; }
-.yellow { background: #ffbd2e; }
-.green { background: #27c93f; }
+.red { background:#ff5f56; }
+.yellow { background:#ffbd2e; }
+.green { background:#27c93f; }
 
 .terminal-title {
     margin-left: 10px;
@@ -343,22 +342,34 @@
     padding: 20px;
     color: #00ff88;
     font-size: 14px;
-    line-height: 1.6;
-    min-height: 150px;
+    min-height: 200px;
 }
 
 .line {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
+    margin-bottom: 6px;
+}
+
+.cmd {
+    color: #00ffaa;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
 }
 
 .prompt {
-    color: #00ff88;
     margin-right: 8px;
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
+#terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff88;
+    font-family: inherit;
+    font-size: 14px;
+    width: 100%;
 }
 
         /* Fade on scroll */
@@ -559,8 +570,13 @@
         <span class="terminal-title">seraphim@security:~</span>
     </div>
 
-    <div class="terminal-body" id="terminal-output">
-        <div class="line"><span class="prompt">$</span> ./init-scan.sh</div>
+    <div class="terminal-body" id="terminal-body">
+        <div class="line">Type <span class="cmd">help</span> to get started.</div>
+
+        <div class="input-line">
+            <span class="prompt">$</span>
+            <input type="text" id="terminal-input" autofocus />
+        </div>
     </div>
 </div>
 </section>
@@ -631,35 +647,81 @@
     });
 </script>
 
-<script>
-const output = document.getElementById("terminal-output");
+    <script>
+const input = document.getElementById("terminal-input");
+const body = document.getElementById("terminal-body");
 
-const lines = [
-    "$ Initializing security assessment...",
-    "$ Scanning target: 192.168.1.0/24",
-    "$ Enumerating services...",
-    "$ Running vulnerability modules...",
-    "$ Analyzing attack surface...",
-    "$ Vulnerabilities found: 12 (3 critical, 5 medium, 4 low)",
-    "$ Generating report...",
-    "$ Output saved: seraphim-security-report.pdf ✔"
-];
+const commands = {
+    help: `
+Available commands:
+- about
+- services
+- scan
+- clear
+- contact
+`,
+    about: "Cybersecurity enthusiast focused on penetration testing & OSINT.",
+    services: `
+Services:
+- Web Pentest
+- Vulnerability Assessment
+- OSINT Investigation
+`,
+    contact: "Email: angelseraphim64@email.com",
+    scan: `
+Initializing scan...
+Target: example.com
+Status: Running...
+Vulnerabilities found: 3 (1 critical)
+Report generated ✔
+`
+};
 
-let index = 0;
+input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        const value = input.value.trim();
 
-function addLine() {
-    if (index < lines.length) {
-        const div = document.createElement("div");
-        div.classList.add("line");
-        div.innerHTML = `<span class="prompt">></span> ${lines[index]}`;
-        output.appendChild(div);
+        addLine(`$ ${value}`);
 
-        index++;
-        setTimeout(addLine, 700);
+        if (value === "clear") {
+            body.innerHTML = "";
+            addInput();
+            return;
+        }
+
+        if (commands[value]) {
+            addLine(commands[value]);
+        } else {
+            addLine("Command not found. Type 'help'");
+        }
+
+        input.value = "";
+        scrollBottom();
     }
+});
+
+function addLine(text) {
+    const div = document.createElement("div");
+    div.classList.add("line");
+    div.innerText = text;
+    body.insertBefore(div, document.querySelector(".input-line"));
 }
 
-setTimeout(addLine, 800);
+function addInput() {
+    const inputLine = document.createElement("div");
+    inputLine.classList.add("input-line");
+
+    inputLine.innerHTML = `
+        <span class="prompt">$</span>
+        <input type="text" id="terminal-input" autofocus />
+    `;
+
+    body.appendChild(inputLine);
+}
+
+function scrollBottom() {
+    body.scrollTop = body.scrollHeight;
+}
 </script>
     
 </body>
