@@ -3,97 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Privacy Policy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Rajdhani&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cyan: #00f5ff;
+            --bg-0: #020408;
+        }
         body {
-            font-family: 'YourFontName', sans-serif;
-            background-color: #e0f7fa; /* Light cyan background */
-            color: #006064; /* Dark cyan text */
-            transition: background-color 0.3s ease;
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--bg-0);
+            color: white;
+            cursor: none;
+            overflow-x: hidden;
         }
-        h1, h2, h3 {
-            color: #004d40; /* Darker cyan for headings */
-        }
-        header {
+        .custom-cursor {
             position: fixed;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--cyan);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: background 0.3s;
+        }
+        .custom-cursor-inner {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            transition: background 0.3s;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
             backdrop-filter: blur(10px);
-            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            transition: all 0.5s;
         }
-        nav a {
-            text-decoration: none;
-            color: #006064;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+        .navbar-link:hover {
+            text-decoration: underline;
         }
-        nav a:hover {
-            color: #004d40;
+        .privacy-section {
+            border-left: 5px solid var(--cyan);
+            margin: 20px;
+            padding: 20px;
+            animation: fadeUp 0.5s;
         }
         footer {
-            background-color: #006064;
-            color: #ffffff;
+            background-color: var(--bg-0);
             text-align: center;
             padding: 20px;
             position: relative;
-            z-index: 1;
         }
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
+    <div class="custom-cursor"></div><div class="custom-cursor-inner"></div>
+    <nav>
+        <div class="brand">Seraphim Security</div>
+        <div class="navbar-links">
+            <a href="index.html" class="navbar-link">Home</a>
+            <a href="index.html#about" class="navbar-link">About</a>
+            <a href="index.html#contact" class="navbar-link">Contact</a>
+        </div>
+    </nav>
     <main>
-        <section id="privacy">
-            <h1>Privacy Policy</h1>
-            <h2>Introduction</h2>
+        <section class="privacy-section">
+            <h2>Privacy Policy</h2>
             <p>Your privacy is important to us...</p>
-            <h2>Information We Collect</h2>
-            <p>We collect information from...</p>
-            <h2>Use of Information</h2>
-            <p>We use the information we collect...</p>
-            <h2>Cookies</h2>
-            <p>We use cookies to enhance your experience...</p>
-            <h2>Your Rights</h2>
-            <p>You have the right to...</p>
-            <h2>Changes to This Policy</h2>
-            <p>We may update this policy from time to time...</p>
+            <!-- More sections as needed -->
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2026 Your Company. All Rights Reserved.</p>
+        <p>Status: Operational</p>
+        <p>&copy; 2026 Seraphim Security</p>
     </footer>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const reveals = document.querySelectorAll('.reveal');
-            window.addEventListener('scroll', function() {
-                reveals.forEach(function(reveal) {
-                    const windowHeight = window.innerHeight;
-                    const elementTop = reveal.getBoundingClientRect().top;
-                    if (elementTop < windowHeight) {
-                        reveal.classList.add('show');
-                    }
-                });
-            });
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorInner = document.querySelector('.custom-cursor-inner');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+            cursorInner.style.left = (e.pageX + 10) + 'px';
+            cursorInner.style.top = (e.pageY + 10) + 'px';
         });
+        document.addEventListener('mouseenter', () => {
+           cursor.style.display = 'block';
+           cursorInner.style.display = 'block';
+        });
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+            cursorInner.style.display = 'none';
+        });
+        // Scroll detection and navbar animation not implemented here
     </script>
 </body>
 </html>
