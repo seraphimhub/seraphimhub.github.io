@@ -5,168 +5,235 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Seraphim Security</title>
 
-<!-- IMPORT FONT SAMA -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* 🔥 COPY ROOT + BASIC DARI INDEX */
 :root {
-  --cyan: #00f5ff;
-  --bg-0: #020408;
-  --bg-1: #060d12;
-  --text-1: #e8f4f8;
-  --text-2: #8eb8c8;
-  --text-3: #4a7a8a;
-  --border: rgba(0,245,255,0.12);
-  --font-mono: 'Share Tech Mono', monospace;
-  --font-body: 'Rajdhani', sans-serif;
-  --font-head: 'Orbitron', monospace;
+  --cyan:#00f5ff;
+  --bg-0:#020408;
+  --bg-1:#060d12;
+  --text-1:#e8f4f8;
+  --text-2:#8eb8c8;
+  --text-3:#4a7a8a;
+  --border:rgba(0,245,255,0.12);
+  --font-mono:'Share Tech Mono', monospace;
+  --font-body:'Rajdhani', sans-serif;
+  --font-head:'Orbitron', monospace;
 }
 
-body {
+body{
   margin:0;
   background:var(--bg-0);
   color:var(--text-1);
   font-family:var(--font-body);
 }
 
-/* NAV */
-nav {
+nav{
   position:fixed;
   top:0;
   width:100%;
-  padding:20px 5%;
-  background:rgba(2,4,8,0.9);
+  height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 5%;
+  background:rgba(2,4,8,0.95);
   border-bottom:1px solid var(--border);
   z-index:100;
 }
 
-.nav-logo {
+.nav-logo{
   color:var(--cyan);
-  font-family:var(--font-head);
-  letter-spacing:2px;
   text-decoration:none;
+  font-family:var(--font-head);
+  letter-spacing:0.2em;
 }
 
-/* CONTENT */
-.container {
+.nav-links{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:var(--text-2);
+  text-decoration:none;
+  font-family:var(--font-mono);
+  font-size:12px;
+}
+
+.nav-links a:hover{color:var(--cyan);}
+
+.container{
   max-width:900px;
   margin:140px auto;
   padding:0 20px;
 }
 
-h1 {
+h1{
   font-family:var(--font-head);
   font-size:48px;
-  margin-bottom:10px;
 }
 
-h2 {
-  margin-top:40px;
+h2{
   color:var(--cyan);
-  font-size:20px;
+  margin-top:40px;
 }
 
-p, li {
+p,li{
   color:var(--text-2);
   line-height:1.7;
 }
 
-ul { padding-left:20px; }
-
-/* FOOTER (SAMA STYLE INDEX) */
-footer {
+footer{
   border-top:1px solid var(--border);
-  padding:40px 5%;
+  padding:60px 5%;
   margin-top:80px;
 }
 
-.footer-copy {
-  font-family:var(--font-mono);
-  font-size:11px;
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.footer-col-title{
+  color:var(--cyan);
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.footer-col ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-col a{
   color:var(--text-3);
+  text-decoration:none;
+}
+
+.footer-col a:hover{color:var(--cyan);}
+
+.footer-copy{
+  margin-top:30px;
+  color:var(--text-3);
+  font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">SERAPHIM</a>
+  <ul class="nav-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/#team">Team</a></li>
+    <li><a href="/#process">Process</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- CONTENT -->
 <div class="container">
 
 <h1>Privacy Policy</h1>
 <p><strong>Effective Date:</strong> April 30, 2026</p>
 
 <p>
-Seraphim Security operates under strict confidentiality and adversarial-resilient data handling principles.
-This policy outlines how data is collected, processed, and protected across our infrastructure.
+Seraphim Security operates under strict confidentiality and zero-trust principles. This policy outlines how we collect, use, and secure data.
 </p>
 
 <h2>1. Data Collection</h2>
 <ul>
-<li>Identity data (name, email) submitted via secure forms</li>
-<li>Technical metadata (IP, device, browser fingerprint)</li>
-<li>Operational telemetry for threat detection</li>
+<li>Personal data (name, email)</li>
+<li>Technical data (IP, device, browser)</li>
+<li>Usage and interaction data</li>
 </ul>
 
 <h2>2. Use of Data</h2>
 <ul>
-<li>Security assessment and service delivery</li>
-<li>Threat detection and anomaly monitoring</li>
-<li>Infrastructure hardening and analysis</li>
+<li>Service delivery</li>
+<li>Threat monitoring</li>
+<li>Security improvements</li>
 </ul>
 
-<h2>3. Security Controls</h2>
+<h2>3. Security</h2>
 <p>
-All data is processed under zero-trust principles, encrypted in transit, and monitored against unauthorized access attempts.
+All data is protected using encryption and monitored against unauthorized access.
 </p>
 
 <h2>4. Data Sharing</h2>
 <p>
-We do not sell or distribute data. Disclosure only occurs under legal obligation or active threat mitigation scenarios.
+We do not sell data. Disclosure only occurs when required by law or for security protection.
 </p>
 
 <h2>5. Cookies</h2>
 <p>
-Minimal tracking is used for performance and security monitoring. Users may disable cookies at browser level.
+Cookies are used for performance and analytics purposes.
 </p>
 
-<h2>6. Third-Party Services</h2>
+<h2>6. Third Parties</h2>
 <p>
-External services may be used for hosting and analytics, each governed by their own policies.
+External services may operate under their own policies.
 </p>
 
 <h2>7. User Rights</h2>
 <p>
-Users may request access, correction, or deletion of their data where applicable.
+Users may request access or deletion of their data.
 </p>
 
 <h2>8. Responsible Disclosure</h2>
 <p>
-Security researchers are encouraged to report vulnerabilities responsibly via official channels.
+Report vulnerabilities responsibly to our team.
 </p>
 
 <h2>9. Updates</h2>
 <p>
-This policy may be updated periodically to reflect evolving threat landscapes.
+Policy may change over time.
 </p>
 
 <h2>10. Contact</h2>
-<p>
-security@seraphim.local
-</p>
+<p>angelseraphim64@gmail.com</p>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-col-title">SERAPHIM</div>
+      <div>// Defend. Detect. Dominate.</div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul>
+        <li><a href="/#services">Penetration Testing</a></li>
+        <li><a href="/#services">Threat Intelligence</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Legal</div>
+      <ul>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+
   <div class="footer-copy">
     © 2026 Seraphim Security. Authorized testing only.
   </div>
