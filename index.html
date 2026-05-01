@@ -1374,44 +1374,54 @@
 </div>
 
       <div class="reveal reveal-delay-2">
-        <div class="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Full Name</label>
-              <input type="text" class="form-input" placeholder="John Operator">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Organization</label>
-              <input type="text" class="form-input" placeholder="ACME Corp">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Secure Email</label>
-            <input type="email" class="form-input" placeholder="you@organization.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Assessment Type</label>
-            <select class="form-select">
-              <option value="" disabled selected>Select engagement scope</option>
-              <option>External Penetration Test</option>
-              <option>Internal Red Team</option>
-              <option>Web Application Audit</option>
-              <option>Cloud Security Review</option>
-              <option>Threat Intelligence Subscription</option>
-              <option>Incident Response</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Mission Brief</label>
-            <textarea class="form-textarea" placeholder="Describe your security posture, existing concerns, compliance requirements..."></textarea>
-          </div>
-          <button class="btn-submit" id="submit-btn">
-            <span id="submit-text">Initiate Secure Contact</span>
-          </button>
-        </div>
+
+  <form action="https://formspree.io/f/xlgzevdq" method="POST" class="contact-form">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="name" class="form-input" placeholder="John Operator" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Organization</label>
+        <input type="text" name="organization" class="form-input" placeholder="ACME Corp">
       </div>
     </div>
-  </div>
+
+    <div class="form-group">
+      <label class="form-label">Secure Email</label>
+      <input type="email" name="email" class="form-input" placeholder="you@organization.com" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Assessment Type</label>
+      <select name="assessment_type" class="form-select" required>
+        <option value="" disabled selected>Select engagement scope</option>
+        <option>External Penetration Test</option>
+        <option>Internal Red Team</option>
+        <option>Web Application Audit</option>
+        <option>Cloud Security Review</option>
+        <option>Threat Intelligence Subscription</option>
+        <option>Incident Response</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Mission Brief</label>
+      <textarea name="message" class="form-textarea" placeholder="Describe your security posture, existing concerns, compliance requirements..." required></textarea>
+    </div>
+
+    <!-- Anti-spam hidden field -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit" class="btn-submit" id="submit-btn">
+      <span id="submit-text">Initiate Secure Contact</span>
+    </button>
+
+  </form>
+
+</div>
 </section>
 
 <!-- ── FOOTER ─────────────────────────────────────── -->
