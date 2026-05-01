@@ -912,15 +912,34 @@
   .reveal-delay-5 { transition-delay: 0.5s; }
 
   /* ── MOBILE ────────────────────────────────────── */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-stats { gap: 30px; }
-    .form-row { grid-template-columns: 1fr; }
-    .process-steps::before { display: none; }
-    #cursor-outer, #cursor-inner { display: none; }
-    body { cursor: auto; }
-    a, button { cursor: pointer; }
+  .menu-toggle {
+  display: none;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: var(--cyan);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
   }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg-1);
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 </style>
 </head>
 <body>
@@ -959,6 +978,7 @@
   </ul>
 
   <button class="nav-cta" onclick="scrollTo('#contact')">Get Assessment</button>
+  <button class="menu-toggle">☰</button>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────── -->
@@ -1677,6 +1697,9 @@ if (glitchEl) {
     glitchEl.style.animationPlayState = 'running';
   }, 4000);
 }
+  document.querySelector('.menu-toggle').onclick = function () {
+  document.querySelector('.nav-links').classList.toggle('active');
+};
 </script>
 </body>
 </html>
