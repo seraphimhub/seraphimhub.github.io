@@ -46,7 +46,7 @@
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: auto;
+    cursor: none;
   }
 
   /* ── CUSTOM CURSOR ─────────────────────────────── */
@@ -112,7 +112,7 @@
   .nav-logo {
     display: flex; align-items: center; gap: 12px;
     text-decoration: none;
-    cursor: auto;
+    cursor: none;
   }
   .nav-logo-icon {
     width: 38px; height: 38px;
@@ -150,7 +150,7 @@
     border-radius: 2px;
     position: relative;
     transition: color var(--t-fast);
-    cursor: auto;
+    cursor: none;
     text-transform: uppercase;
   }
   .nav-links a::after {
@@ -179,7 +179,7 @@
     overflow: hidden;
     transition: background var(--t-fast), transform var(--t-fast) var(--ease-bounce),
                 box-shadow var(--t-mid);
-    cursor: auto;
+    cursor: none;
     font-weight: 600;
   }
   .nav-cta::before {
@@ -296,7 +296,7 @@
     transition: transform var(--t-mid) var(--ease-bounce),
                 box-shadow var(--t-mid) var(--ease-out),
                 background var(--t-fast);
-    cursor: auto;
+    cursor: none;
     font-weight: 700;
     display: inline-block;
   }
@@ -327,7 +327,7 @@
                 box-shadow var(--t-mid),
                 background var(--t-fast),
                 border-color var(--t-fast);
-    cursor: auto;
+    cursor: none;
     display: inline-block;
   }
   .btn-secondary::before {
@@ -376,7 +376,7 @@
     display: flex; flex-direction: column; align-items: center; gap: 8px;
     opacity: 0;
     animation: fadeUp 0.8s var(--ease-out) 1.5s forwards;
-    cursor: auto;
+    cursor: none;
   }
   .hero-scroll span {
     font-family: var(--font-mono);
@@ -454,7 +454,7 @@
     padding: 44px 40px;
     position: relative;
     overflow: hidden;
-    cursor: auto;
+    cursor: none;
     transition: background var(--t-mid);
     display: flex; flex-direction: column; gap: 20px;
   }
@@ -665,7 +665,7 @@
     transition: transform var(--t-mid) var(--ease-bounce),
                 border-color var(--t-mid),
                 box-shadow var(--t-mid);
-    cursor: auto;
+    cursor: none;
   }
   .team-card::after {
     content: '';
@@ -767,7 +767,7 @@
     padding: 20px 24px;
     border: 1px solid var(--border);
     transition: border-color var(--t-mid), transform var(--t-mid) var(--ease-bounce);
-    cursor: auto;
+    cursor: none;
   }
   .contact-method:hover { border-color: var(--border-bright); transform: translateX(8px); }
   .method-icon { font-size: 20px; flex-shrink: 0; }
@@ -798,7 +798,7 @@
   }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
   .form-textarea { min-height: 120px; }
-  .form-select { color: var(--text-2); cursor: auto; }
+  .form-select { color: var(--text-2); cursor: none; }
   .form-select option { background: var(--bg-2); }
 
   .btn-submit {
@@ -815,7 +815,7 @@
     transition: transform var(--t-mid) var(--ease-bounce),
                 box-shadow var(--t-mid),
                 background var(--t-fast);
-    cursor: auto;
+    cursor: none;
     font-weight: 700;
     margin-top: 8px;
     width: 100%;
@@ -853,7 +853,7 @@
   .footer-col ul li a {
     font-size: 13px; color: var(--text-3); text-decoration: none;
     transition: color var(--t-fast);
-    cursor: auto;
+    cursor: none;
   }
   .footer-col ul li a:hover { color: var(--cyan); }
 
@@ -912,34 +912,11 @@
   .reveal-delay-5 { transition-delay: 0.5s; }
 
   /* ── MOBILE ────────────────────────────────────── */
-  .menu-toggle {
-  display: none;
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: var(--cyan);
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--bg-1);
-    padding: 20px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-stats { gap: 30px; }
+    .form-row { grid-template-columns: 1fr; }
+    .process-steps::before { display: none; }
     #cursor-outer, #cursor-inner { display: none; }
     body { cursor: auto; }
     a, button { cursor: pointer; }
@@ -978,12 +955,10 @@
     <li><a href="#about">About</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#News">News</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
   <button class="nav-cta" onclick="scrollTo('#contact')">Get Assessment</button>
-  <button class="menu-toggle">☰</button>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────── -->
@@ -1702,9 +1677,6 @@ if (glitchEl) {
     glitchEl.style.animationPlayState = 'running';
   }, 4000);
 }
-  document.querySelector('.menu-toggle').onclick = function () {
-  document.querySelector('.nav-links').classList.toggle('active');
-};
 </script>
 </body>
 </html>
